@@ -1,0 +1,56 @@
+{
+    "$id": "http://my.com/schemas/myschema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "model": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "用于标识一个表单,不可重复"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "用于显示"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "随便写点什么吧"
+                },
+                "page": {
+                    "$ref": "https://houtai.baidu.com/v2/schemas/page.json",
+                    "description": "指定画面如何显示"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "page"
+            ]
+        }
+    },
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "指定application的id，不要与现有的application id 重复"
+        },
+        "name": {
+            "type": "string",
+            "description": "指定application的名称，要求高端大气上档次"
+        },
+        "description": {
+            "type": "string",
+            "description": "随便写点什么吧"
+        },
+        "models": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/model"
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name"
+    ]
+}
